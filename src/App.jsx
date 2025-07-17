@@ -34,6 +34,8 @@ function App() {
 
         <footer className="text-white text-center mt-8"> Redux Todo Footer</footer>
 
+        <button>Hello from Shaun</button>
+
     </div>
   );
 }
