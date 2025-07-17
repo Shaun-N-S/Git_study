@@ -5,15 +5,23 @@ import { useState } from 'react';
 
 function App() {
   const [input, setInput] = useState('');
+  let [isCompleted,setIsCompleted] = useState(false);
+
   const todos = useSelector(state => state.todos);
   const dispatch = useDispatch();
-
+ 
   const handleAdd = () => {
     if (input.trim() !== "") {
       dispatch(addTodo(input));
       setInput('');
     }
   };
+  
+ const handleComplete = () => {
+  setIsCompleted(prev => !prev);
+};
+console.log(isCompleted); // Will log old value (because state updates async)
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-500 to-pink-500 flex flex-col items-center justify-center">
@@ -23,15 +31,17 @@ function App() {
         <button onClick={handleAdd} className="bg-white text-purple-700 font-bold px-4 py-2 rounded-xl shadow-lg hover:scale-105 transition-transform">Add</button>
       </div>
       <ul className="space-y-4 w-80">
-        {todos.map(todo => (
-          <li key={todo.id} className={`flex justify-between items-center p-3 rounded-xl shadow-md bg-white ${todo.completed ? 'line-through text-gray-400' : ''}`}>
+        {todos.map(todo => (     
+          <li key={todo.id} className={`flex justify-between items-center p-3 rounded-xl shadow-md bg-white ${isCompleted ? 'line-through text-gray-400' : ''}`}>
             <span onClick={() => dispatch(toggleTodo(todo.id))} className="cursor-pointer">{todo.text}</span>
             <button onClick={() => dispatch(deleteTodo(todo.id))} className="text-red-500 hover:text-red-700 font-bold">x</button>  
-          </li>
-        ))}
-      </ul>
-      <button>Helloo from abhishek</button>
+            <button  onClick={handleComplete}  className={`${isCompleted ? 'line-through text-gray-400' : ''} bg-white text-purple-700 font-bold px-4 py-2 rounded-xl shadow-lg hover:scale-105 transition-transform`}
+>Completed</button>
 
+          </li>
+        ))} 
+      </ul>
+      <button>Helloo from abhishek</button>          
         <footer className="text-white text-center mt-8"> Redux Todo Footer</footer>
 
         <button>Hello from Shaun</button>
