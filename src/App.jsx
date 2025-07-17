@@ -30,6 +30,9 @@ function App() {
           </li>
         ))}
       </ul>
+
+        <footer className="text-white text-center mt-8"> Redux Todo Footer</footer>
+
     </div>
   );
 }
