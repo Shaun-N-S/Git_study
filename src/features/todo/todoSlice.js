@@ -11,7 +11,7 @@ const todoSlice = createSlice({
       const todo = state.find(todo => todo.id === action.payload);
       if (todo) todo.completed = !todo.completed;
     },
-    deleteTodo: (state, action) => state.filter(todo => todo.id !== action.payload)
+    deleteTodo: (state, action) => state.filter(todo => todo.id !== action.payload) 
   }
 });
 

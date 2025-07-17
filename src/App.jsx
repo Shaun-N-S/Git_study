@@ -26,7 +26,7 @@ function App() {
         {todos.map(todo => (
           <li key={todo.id} className={`flex justify-between items-center p-3 rounded-xl shadow-md bg-white ${todo.completed ? 'line-through text-gray-400' : ''}`}>
             <span onClick={() => dispatch(toggleTodo(todo.id))} className="cursor-pointer">{todo.text}</span>
-            <button onClick={() => dispatch(deleteTodo(todo.id))} className="text-red-500 hover:text-red-700 font-bold">X</button>
+            <button onClick={() => dispatch(deleteTodo(todo.id))} className="text-red-500 hover:text-red-700 font-bold">x</button>  
           </li>
         ))}
       </ul>
