@@ -43,6 +43,9 @@ console.log(isCompleted); // Will log old value (because state updates async)
       </ul>
       <button>Helloo from abhishek</button>          
         <footer className="text-white text-center mt-8"> Redux Todo Footer</footer>
+
+        <button>Hello from Shaun</button>
+
     </div>
   );
 }
